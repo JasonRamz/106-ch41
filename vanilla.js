@@ -7,6 +7,7 @@ function sum(num1,num2){
     return res;
 }
 
+
 function printNumbers(){
     //print numbers from 1-10
     //except the three and seven because i dont like it.
