@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    border: 0;
+}
+h1{
+    text-align: center;
+}
+
+main{
+    display: flex;
+    height: calc(100vh - 37px);
+}
+#list{
+    background-color: blanchedalmond;
+    flex:3;
+}
+#form{
+    background-color: aquamarine;
+    flex:2;
+    padding: 10px 20px;
+}
+
+#iImportant{
+    color: midnightblue;
+    font-size: 30px;
+    cursor: pointer;
+}
+/*  */
