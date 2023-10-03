@@ -39,22 +39,67 @@ let taskToSave = new Task(isImportant, title, desc, color, date, status, budget)
 
 console.log(taskToSave);
 //save to server
-
+$.ajax({
+    type: "POST",
+    url: "http://fsdiapi.azurewebsites.net/api/tasks/",
+    data: JSON.stringify(taskToSave),
+    contentType: "application/json",
+    success: function(response){
+        console.log(response);
+    },
+    error: function(error){
+        console.log(error);
+    },
+});
 //display the task
 //render the object into the list
 displayTask(taskToSave);
+clearForm();
 }
+function loadTask(){
+$.ajax({
+    type:"GET",
+    url: "http://fsdiapi.azurewebsites.net/api/tasks",
+    success: function(response){
+        let data = JSON.parse(response);
+        //console.log(response);
+        console.log(data);
+        for(let i=0; i < data.length; i++){
+            let task = data[i];
+            if(task.name == "Jason"){
+                console.log(task);
+            }
+        }
+    },
+    error: function(error){
+        console.log(error);
+    },
+
+});
+}
+function clearForm(){
+$("#txtTitle").val("");
+$("#txtDescription").val("");
+$("#selColor").val("");
+$("#selDate").val("#000000");
+$("#selStatus").val("");
+$("#numBudget").val("");
+}
+
 function displayTask(task){
-    let syntax =`<div class="task">
-    <div class="info"
-    <h5>${task.title}</h5>
-    <p>${task.desc}</p>
-    </div>
-    <label>${task.status}</label>
-    <div class="date-budget">
-    <label>${task.date}</label>
-    <label>${task.budget}</label>
-    </div>
+    let syntax =`
+    <div class="task">
+        <div class="info"
+            <h5>${task.title}</h5>
+            <p>${task.desc}</p>
+            <label>${task.status}</label>
+        </div>
+        
+        <div class="date-budget">
+            
+            <label>${task.date}</label>
+            <label>${task.budget}</label>
+        </div>
     </div>
     `;
 
@@ -73,11 +118,25 @@ function toggleVisibility(){
     }
 }
 
+function testRequest(){
+    $.ajax({
+        type: "GET",//Reads
+        url: "https://fsdiapi.azurewebsites.net/",//reach
+        success: function(response){
+            console.log(response);
+        },
+        error: function(error){
+            console.log(error);
+        },
+
+    });
+
+}
 
 
 function init(){
     //load data
-
+    loadTask();
     // hook events
     $("#btnSave").click(saveTask);
     $("#iImportant").click(toggleImportant);

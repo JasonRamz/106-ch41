@@ -2,8 +2,17 @@
     margin: 0;
     border: 0;
 }
+header{
+    background-image: url(../img/Desert_Mountain_Landscape_Wallpaper.jpg);
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    height: 37px;
+}
+
 h1{
     text-align: center;
+    color: rgb(115, 82, 7);
 }
 
 main{
@@ -11,18 +20,44 @@ main{
     height: calc(100vh - 37px);
 }
 #list{
+    color: white;
+    font-weight: 400;
     background-color: blanchedalmond;
     flex:3;
+    background-image: url("https://img.freepik.com/free-photo/dark-floral-seamless-pattern-luxury-wallpaper-vintage-texture-generative-ai_8829-2871.jpg?w=826&t=st=1696292794~exp=1696293394~hmac=d1571527c4c60485266f6963ee656a918cc272f0035e55d6740df24053f674c7");
 }
 #form{
-    background-color: aquamarine;
+    color: #ffffff;
+    font-weight: 400;
     flex:2;
     padding: 10px 20px;
+    background-image: url("https://img.freepik.com/free-photo/top-view-background-beautiful-white-grey-brown-cream-blue-background_140725-72219.jpg?w=1380&t=st=1696293085~exp=1696293685~hmac=f0f28314f4f8c65298d6f47c91b71124f9a8851a1e278ed2ea04a52ec4e81965");
 }
 
+
 #iImportant{
-    color: midnightblue;
+    color: rgb(255, 255, 255);
     font-size: 30px;
     cursor: pointer;
+}
+.task .status{
+    flex: 1;
+}
+.task{
+    margin: 10px 20px;
+    padding: 10px;
+    border: 1px solid rgb(225, 236, 234);
+    display: flex;
+    box-shadow: -1px 1px 3px 6px #ffffff;
+    align-items: center;
+}
+.task .info{
+    flex: 3;
+}
+.task .info h5{
+    margin-bottom: 3px;
+}
+.task .date-budget label{
+    display: block;
 }
 /*  */
